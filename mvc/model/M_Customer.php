@@ -1,6 +1,6 @@
 <?php
 
-    include_once("./Model/E_Customer.php");
+    include_once("./model/E_Customer.php");
     class Model_Customer
     {
 

@@ -15,7 +15,7 @@
         <div class="jumbotron text-center">
             <h2>Danh sách khách hàng</h2>
         </div>
-    <a href="./?action=newCustomer" class="btn btn-lg btn-success">Add Customer</a>
+    <a href="?action=newCustomer" class="btn btn-lg btn-success">Add Customer</a>
 
     <table class="table table-hover">
         <thead>
@@ -51,7 +51,7 @@
     </div>
     <br>
     <div class="text-center">
-        <h3><a href="./index.php">Log Out</a></h3>
+        <h3><a href="../../index.php">Log Out</a></h3>
     </div>
     
 </body>

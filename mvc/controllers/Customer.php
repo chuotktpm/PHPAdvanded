@@ -1,7 +1,6 @@
 <?php
-    include_once("./Model/M_Customer.php");
-
-    class Controllers_Customer
+    include_once("./model/M_Customer.php");
+    class Customer
     {
         public function __construct()
         {
@@ -12,7 +11,7 @@
         {
             $modelCustomer = new Model_Customer();
             $customerList = $modelCustomer->getAllCustomer();
-            include_once  './View/showListCustomer.php';
+            include_once './view/showListCustomer.php';
         }
 
         public function newCustomer()

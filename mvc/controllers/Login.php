@@ -1,6 +1,6 @@
 <?php
-include_once ("./Model/M_User.php");
-class Controller_Login{
+include_once("./model/M_User.php");
+class Login{
 
     private $modelUser;
     private $leveladmin = 0;
@@ -17,7 +17,7 @@ class Controller_Login{
             if ($data_login == 0)
             {
                 echo "<script type='text/javascript'>alert('Đăng nhập thất bại!');</script>";
-                include_once ("./View/login.php");
+                include_once("./view/login.php");
             }
             else
             {

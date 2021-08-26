@@ -33,7 +33,7 @@
 
 
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="ADD" name="btnAdd" >
-                            <a href="./?action=showList" class="btn btn-default btn-block">Cancel</a>
+                            <a href="?action=showList" class="btn btn-default btn-block">Cancel</a>
                         </fieldset>
                     </form>
                 </div>
