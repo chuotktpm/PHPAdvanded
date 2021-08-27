@@ -22,7 +22,6 @@ class Login extends Controller
             echo "<script type='text/javascript'>alert('UserName or PassWord incorrect!');</script>";
             $this->enterLogin();
         }
-
     }
 }
 

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2021 at 09:56 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: Aug 27, 2021 at 11:24 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,11 +43,7 @@ INSERT INTO `customer` (`id`, `name`, `email`, `create_date`, `updated_date`) VA
 (1, 'Nguyễn Văn A', 'nguyenVanA@gmail.com', '2021-08-11', '2021-08-12'),
 (2, 'Trần Văn C', 'tranVanC@gmail.com', '2021-06-14', '2021-07-22'),
 (3, 'Hữu Thành Chung', 'chungcho@gmail.com', '2021-08-02', '2021-08-11'),
-(4, '', '', '0000-00-00', '0000-00-00'),
-(5, 'Hữu Thành Chung5', 'acsa', '2021-08-12', '2021-08-13'),
-(6, 'ABC', 'acsa', '2021-08-17', '2021-08-21'),
-(7, 'Thái Bảo 2', 'bao2@gmail.com', '2342-12-12', '1934-04-12'),
-(8, 'Thái Bảo 2', 'bao2@gmail.com', '2342-12-12', '1934-04-12'),
+(4, 'Hiếu KTPM5', 'hieu123@gmail.com', '2021-08-11', '2021-08-19'),
 (9, 'Đào Thị Nhi', 'nhicoi123@gmail.com', '1999-02-04', '2021-03-24');
 
 -- --------------------------------------------------------

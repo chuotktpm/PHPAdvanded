@@ -41,14 +41,45 @@
         {
             $infoCustomer = $this->model("CustomerModel")->getCustomerById($id);
             $this->view("editCustomer",[
-                "ListCustomer" => $infoCustomer,
+                "info" => $infoCustomer,
             ]);
         }
 
         public function saveInfoCustomer($id)
         {
+            if (isset($_POST['btnEdit']))
+            {
+                $saveCustomer = $this->model("CustomerModel");
+                $name = $_POST["txtName"];
+                $email = $_POST["txtEmail"];
+                $creatDate = $_POST["txtCreateDate"];
+                $updatedDate = $_POST["txtUpdatedDate"];
+                $result = $saveCustomer->updateCustomer($id,$name, $email, $creatDate, $updatedDate);
+                if ($result)
+                {
+                    header("location: ../showList");
+                }
+                else
+                {
+                    echo "<script type='text/javascript'>alert('Update Faile!');</script>";
+                    $this->editCustomer($id);
+                }
+            }
+        }
 
-            $this->showList();
+        public function deleteCustomer($id)
+        {
+            $modelCustomer = $this->model("CustomerModel");
+            $result = $modelCustomer->deleteCustomer($id);
+                if ($result)
+                {
+                    echo "<script type='text/javascript'>alert('Delete successfully!');</script>";
+                    header("location: ../showList");
+                }
+                else
+                {
+                    echo "<script type='text/javascript'>alert('Delete Faile!');</script>";
+                }
         }
     };
 ?>

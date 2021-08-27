@@ -37,7 +37,7 @@
                 . "<td>". $row["email"] ."</td>"
                 . "<td>". $row["create_date"] ."</td>"
                 . "<td>". $row["updated_date"] ."</td>"
-                . "<td><a href='editCustomer/" .$row["id"] ."'>Edit</a> | <a href='#'>Delete</a></td></tr>";
+                . "<td><a href='editCustomer/" .$row["id"] ."'>Edit</a> | <a href='deleteCustomer/" .$row["id"] ."'>Delete</a></td></tr>";
             }
         }
     ?>

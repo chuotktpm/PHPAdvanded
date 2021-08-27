@@ -15,10 +15,7 @@
 </style>
 
 <body>
-<?php
-    if (isset($infoCustomer))
-        echo "A";
-?>
+
 <div class="container">
 
     <div class="row">
@@ -28,35 +25,40 @@
                     <h3 class="panel-title">Add Customer</h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form" method="POST" action="saveInfoCustomer">
+                    <form role="form" method="post" action="../saveInfoCustomer/<?php if (isset($data)) echo $data["info"][0]; ?>">
                         <fieldset>
 <!--                            Field ID-->
                             <div class='form-group'>
                                 <input class='form-control' placeholder='ID' name='txtName' type='text'
-                                       value=""
+                                       value='<?php if (isset($data)) echo $data["info"][0]; ?>'
                                        readonly autofocus>
                             </div>
 <!--                            Field Name-->
                             <div class='form-group'>
-                                <input class='form-control' placeholder='Name' name='txtName' type='text' autofocus>
+                                <input class='form-control' placeholder='Name' name='txtName' type='text'
+                                       value='<?php if (isset($data)) echo $data["info"][1]; ?>'
+                                       autofocus>
                             </div>
 <!--                            Field Email-->
                             <div class='form-group'>
-                                <input class='form-control' placeholder='Email' name='txtEmail' type='text' value=''>
+                                <input class='form-control' placeholder='Email' name='txtEmail' type='text'
+                                       value='<?php if (isset($data)) echo $data["info"][2]; ?>'>
                             </div>
 <!--                            Field CreateDate-->
                             <div class='form-group'>
-                                <input class='form-control' placeholder='Create Date' name='txtCreateDate' type='date' value=''>
+                                <input class='form-control' placeholder='Create Date' name='txtCreateDate' type='date'
+                                       value='<?php if (isset($data)) echo $data["info"][3]; ?>'>
                             </div>
 <!--                            Field UpdatedDate-->
                             <div class='form-group'>
-                                <input class='form-control' placeholder='Update Date' name='txtUpdatedDate' type='date' value=''>
+                                <input class='form-control' placeholder='Update Date' name='txtUpdatedDate' type='date'
+                                       value='<?php if (isset($data)) echo $data["info"][4]; ?>'>
                             </div>
 
 <!--                            Button Save-->
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="Save" name="btnEdit" >
 <!--                            Button Cancel-->
-                            <a href="./showList" class="btn btn-default btn-block">Cancel</a>
+                            <a href="../showList" class="btn btn-default btn-block">Cancel</a>
                         </fieldset>
                     </form>
                 </div>
