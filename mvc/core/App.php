@@ -2,7 +2,6 @@
 
 class App
 {
-    //https://localhost/PHPAdvanded/Home/sayhi/1/2/3
     private $controllers = "Home";
     private $action = "page";
     private $params = [];
@@ -11,10 +10,13 @@ class App
         $arr = $this->UrlProcess();
 
         //Controllers
-        if (file_exists("./mvc/controllers/" .$arr[0] .".php"))
+        if (isset($arr[0]))
         {
-            $this->controllers = $arr[0];
-            unset($arr[0]);
+            if (file_exists("./mvc/controllers/" .$arr[0] .".php"))
+            {
+                $this->controllers = $arr[0];
+                unset($arr[0]);
+            }
         }
         require_once "./mvc/controllers/".$this->controllers .".php";
 

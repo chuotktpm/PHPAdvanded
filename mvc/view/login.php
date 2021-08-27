@@ -19,7 +19,7 @@
                     <h3 class="panel-title">Sign In</h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form" method="POST" action="?action=login">
+                    <form role="form" method="post" action="checkLogin">
                         <fieldset>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Username" name="txtUsername" type="text" autofocus>

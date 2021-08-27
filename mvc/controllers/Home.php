@@ -1,11 +1,16 @@
 <?php
 
 
-class Home
+class Home extends Controller
 {
+    public function __construct()
+    {
+        $this->page();
+    }
+
     function page()
     {
-        echo "Đây là Home - page";
+        $this->view("home");
     }
 
     function show()

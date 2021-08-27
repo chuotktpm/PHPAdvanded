@@ -15,7 +15,7 @@
         <div class="jumbotron text-center">
             <h2>Danh sách khách hàng</h2>
         </div>
-    <a href="?action=newCustomer" class="btn btn-lg btn-success">Add Customer</a>
+    <a href="./newCustomer" class="btn btn-lg btn-success">Add Customer</a>
 
     <table class="table table-hover">
         <thead>
@@ -28,30 +28,26 @@
         </tr>
         </thead>
         <tbody>
-        <?php
-        if ($customerList->num_rows > 0)
+    <?php
+        if (isset($data)) {
+            while($row = mysqli_fetch_array($data["ListCustomer"]))
             {
-                while($row = $customerList->fetch_assoc())
-                {
-                    echo "<tr><td>" .$row["id"] ."</td>"
-                    . "<td>". $row["name"] ."</td>"
-                    . "<td>". $row["email"] ."</td>"
-                    . "<td>". $row["create_date"] ."</td>"
-                    . "<td>". $row["updated_date"] ."</td>"
-                    . "<td><a href='#'>Edit</a> | <a href='#'>Delete</a></td></tr>";
-                }
+                echo "<tr><td>" .$row["id"] ."</td>"
+                . "<td>". $row["name"] ."</td>"
+                . "<td>". $row["email"] ."</td>"
+                . "<td>". $row["create_date"] ."</td>"
+                . "<td>". $row["updated_date"] ."</td>"
+                . "<td><a href='editCustomer/" .$row["id"] ."'>Edit</a> | <a href='#'>Delete</a></td></tr>";
             }
-            else
-                {
-                    echo "0 results";
-                }
-        ?>
+        }
+    ?>
         </tbody>
     </table>
     </div>
+
     <br>
     <div class="text-center">
-        <h3><a href="../../index.php">Log Out</a></h3>
+        <h3><a href="../">Log Out</a></h3>
     </div>
     
 </body>

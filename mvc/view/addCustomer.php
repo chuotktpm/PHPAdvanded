@@ -5,18 +5,23 @@
     <title>Add Customer</title>
 </head>
 
+<style>
+    .add-panel {
+        margin-top: 150px;
+</style>
+
 <body>
 
 <div class="container">
 
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-success">
+            <div class="panel panel-success add-panel">
                 <div class="panel-heading">
                     <h3 class="panel-title">Add Customer</h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form" method="POST" action="?action=addCustomer">
+                    <form role="form" method="POST" action="addCustomer">
                         <fieldset>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Name" name="txtName" type="text" autofocus>
@@ -33,7 +38,7 @@
 
 
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="ADD" name="btnAdd" >
-                            <a href="?action=showList" class="btn btn-default btn-block">Cancel</a>
+                            <a href="./showList" class="btn btn-default btn-block">Cancel</a>
                         </fieldset>
                     </form>
                 </div>

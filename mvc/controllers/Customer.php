@@ -1,40 +1,54 @@
 <?php
-    include_once("./model/M_Customer.php");
-    class Customer
+    class Customer extends Controller
     {
-        public function __construct()
-        {
-
-        }
-
         public function showList()
         {
-            $modelCustomer = new Model_Customer();
-            $customerList = $modelCustomer->getAllCustomer();
-            include_once './view/showListCustomer.php';
+            $modelCustomer = $this->model("CustomerModel");
+            $listCustomer = $modelCustomer->getAllCustomer();
+            $this->view("showListCustomer",[
+                "ListCustomer" => $listCustomer,
+            ]);
         }
 
         public function newCustomer()
         {
+            $this->view("addCustomer");
+        }
 
-            $modelCustomer = new Model_Customer();
+        public function addCustomer()
+        {
+            $modelCustomer = $this->model("CustomerModel");
             if (isset($_POST['btnAdd']))
             {
                 $name = $_POST["txtName"];
                 $email = $_POST["txtEmail"];
                 $creatDate = $_POST["txtCreateDate"];
                 $updatedDate = $_POST["txtUpdatedDate"];
-                if ($modelCustomer->insertCustomer($name, $email, $creatDate, $updatedDate))
+                $result = $modelCustomer->insertCustomer($name, $email, $creatDate, $updatedDate);
+                if ($result)
                 {
-                    echo "<script type='text/javascript'>alert('Thêm thành công');</script>";
-                    header("location: ?action=showList");
+                    echo "<script type='text/javascript'>alert('Add successfully!');</script>";
+                    $this->showList();
                 }
                 else
                 {
-                    echo "<script type='text/javascript'>alert('Thêm thất bại!');</script>";
+                    echo "<script type='text/javascript'>alert('Faile!');</script>";
                 }
-
             }
+        }
+
+        public function editCustomer($id)
+        {
+            $infoCustomer = $this->model("CustomerModel")->getCustomerById($id);
+            $this->view("editCustomer",[
+                "ListCustomer" => $infoCustomer,
+            ]);
+        }
+
+        public function saveInfoCustomer($id)
+        {
+
+            $this->showList();
         }
     };
 ?>
