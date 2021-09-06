@@ -13,15 +13,36 @@ class Login extends Controller
         $user = $_POST["txtUsername"];
         $pass = $_POST["txtPassword"];
         $s = $modelLogin->checkUserPass($user,$pass);
-        if ($s)
+        switch ($s)
         {
-            header("location: ../Customer/showList");
+            case 0:
+                echo "<script type='text/javascript'>alert('UserName or PassWord incorrect!');</script>";
+                echo "<script type='text/javascript'>
+                        window.location.href = 'http://localhost/PHPAdvanded/Login/enterLogin';
+                    </script>";
+                break;
+            case 1:
+                $_SESSION["Username"] = $_POST["txtUsername"];
+                echo "<script type='text/javascript'>
+                        window.location.href = 'http://localhost/PHPAdvanded/Customer/showList';
+                    </script>";
+                break;
+            case 2:
+                $_SESSION["Username"] = $_POST["txtUsername"];
+                echo "<script type='text/javascript'>
+                        window.location.href = 'http://localhost/PHPAdvanded/Home/page';
+                    </script>";
+                break;
+
         }
-        else
-        {
-            echo "<script type='text/javascript'>alert('UserName or PassWord incorrect!');</script>";
-            $this->enterLogin();
-        }
+    }
+
+    public function logout()
+    {
+        $_SESSION["Username"] = null;
+        echo "<script type='text/javascript'>
+                        window.location.href = 'http://localhost/PHPAdvanded/Login/enterLogin';
+                    </script>";
     }
 }
 

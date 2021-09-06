@@ -47,12 +47,12 @@
 <!--                            Field CreateDate-->
                             <div class='form-group'>
                                 <input class='form-control' placeholder='Create Date' name='txtCreateDate' type='date'
-                                       value='<?php if (isset($data)) echo $data["info"][3]; ?>'>
+                                       value='<?php if (isset($data)) echo $data["info"][3]; ?>' readonly>
                             </div>
 <!--                            Field UpdatedDate-->
                             <div class='form-group'>
                                 <input class='form-control' placeholder='Update Date' name='txtUpdatedDate' type='date'
-                                       value='<?php if (isset($data)) echo $data["info"][4]; ?>'>
+                                       value='<?php if (isset($data)) echo $data["info"][4]; ?>' readonly>
                             </div>
 
 <!--                            Button Save-->

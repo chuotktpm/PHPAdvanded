@@ -5,17 +5,17 @@ class Home extends Controller
 {
     public function __construct()
     {
-        $this->page();
+        $this->view("header");
     }
 
     function page()
     {
-        $this->view("home");
-    }
+        $modelNews = $this->model("NewsModel");
+        $listNews = $modelNews->getAllNews();
 
-    function show()
-    {
-        echo "Đây là Home - show";
+
+
+        $this->view("home", ["listNews" => $listNews]);
     }
 }
 ?>

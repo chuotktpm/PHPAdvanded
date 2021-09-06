@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2021 at 11:24 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- Generation Time: Sep 06, 2021 at 04:41 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,11 +40,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `name`, `email`, `create_date`, `updated_date`) VALUES
-(1, 'Nguyễn Văn A', 'nguyenVanA@gmail.com', '2021-08-11', '2021-08-12'),
-(2, 'Trần Văn C', 'tranVanC@gmail.com', '2021-06-14', '2021-07-22'),
-(3, 'Hữu Thành Chung', 'chungcho@gmail.com', '2021-08-02', '2021-08-11'),
-(4, 'Hiếu KTPM5', 'hieu123@gmail.com', '2021-08-11', '2021-08-19'),
-(9, 'Đào Thị Nhi', 'nhicoi123@gmail.com', '1999-02-04', '2021-03-24');
+(15, 'ADMIN', 'ADMIN', '0000-00-00', '2021-09-01'),
+(19, 'Nhi', 'nhicoi123@gmail.com', '2021-08-31', '2021-09-01'),
+(20, 'Nhi Còi', 'nhi1@gmail.com', '2021-08-31', '2021-08-31');
 
 -- --------------------------------------------------------
 
@@ -56,15 +54,18 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` text NOT NULL,
   `password` text NOT NULL,
-  `lvaccess` int(11) NOT NULL
+  `lvaccess` int(11) NOT NULL,
+  `idCustomer` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `lvaccess`) VALUES
-(1, 'admin', 'admin123', 0);
+INSERT INTO `user` (`id`, `username`, `password`, `lvaccess`, `idCustomer`) VALUES
+(1, 'admin', 'admin123', 1, 15),
+(5, 'nhi', 'nhi123', 2, 19),
+(6, 'nhi123', '123', 2, 20);
 
 --
 -- Indexes for dumped tables
@@ -80,7 +81,8 @@ ALTER TABLE `customer`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idCustomer` (`idCustomer`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -90,13 +92,23 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`idCustomer`) REFERENCES `customer` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

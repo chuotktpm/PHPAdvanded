@@ -16,7 +16,7 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Sign In</h3>
+                    <h3 class="font-weight-bold panel-title">Sign In</h3>
                 </div>
                 <div class="panel-body">
                     <form role="form" method="post" action="checkLogin">
@@ -27,12 +27,14 @@
                             <div class="form-group">
                                 <input class="form-control" placeholder="Password" name="txtPassword" type="password" value="">
                             </div>
+                            <div>
+                                <a href="../Register/enterRegister">Sign up?</a>
+                            </div>
 
 
-                            <input class="btn btn-lg btn-success btn-block" type="submit" value="Login" name="btnLogin" >
+                            <input class="btn btn-lg btn-success btn-block" type="submit" value="Login" name="btnLogin"
+                            style="margin-top: 20px;">
 
-                            <!-- Change this to a button or input when using this as a form -->
-<!--                              <a href="./Controllers/Ctrl_Customer.php" class="btn btn-lg btn-success btn-block">Login</a>-->
                         </fieldset>
                     </form>
                 </div>

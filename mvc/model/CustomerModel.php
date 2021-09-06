@@ -18,9 +18,9 @@
             }
         }
 
-        public function updateCustomer($id, $name, $email, $create_date, $updated_date)
+        public function updateCustomer($id, $name, $email, $updated_date)
         {
-            $sql = "UPDATE `customer` SET `name` = '$name', `email` = '$email', `create_date` = '$create_date', `updated_date` = '$updated_date' WHERE `customer`.`id` = $id;";
+            $sql = "UPDATE `customer` SET `name` = '$name', `email` = '$email', `updated_date` = '$updated_date' WHERE `customer`.`id` = $id;";
             if (mysqli_query($this->connect, $sql)) {
                 return true;
             } else {

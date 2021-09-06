@@ -12,10 +12,25 @@ class App
         //Controllers
         if (isset($arr[0]))
         {
+            if(!$_SESSION["Username"] && $arr[0] != "Login" && $arr[1] != "enterLogin")
+            {
+                echo "<script type='text/javascript'>
+                        window.location.href = 'http://localhost/PHPAdvanded/Login/enterLogin';
+                    </script>";
+            }
             if (file_exists("./mvc/controllers/" .$arr[0] .".php"))
             {
                 $this->controllers = $arr[0];
                 unset($arr[0]);
+            }
+        }
+        else
+        {
+            if(!$_SESSION["Username"])
+            {
+                echo "<script type='text/javascript'>
+                        window.location.href = 'http://localhost/PHPAdvanded/Login/enterLogin';
+                    </script>";
             }
         }
         require_once "./mvc/controllers/".$this->controllers .".php";
@@ -28,6 +43,17 @@ class App
                 $this->action = $arr[1];
             }
             unset($arr[1]);
+        }
+        else
+        {
+            if ($this->controllers == "Login")
+            {
+                $this->action = "enterLogin";
+            }
+            if ($this->controllers == "Customer")
+            {
+                $this->action = "showList";
+            }
         }
 
         //Params

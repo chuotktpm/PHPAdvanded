@@ -12,12 +12,12 @@
 <body>
 
     <div class="container">
-        <div class="jumbotron text-center">
-            <h2>Danh sách khách hàng</h2>
+        <div class="text-center">
+            <h2>List Customer</h2>
         </div>
-    <a href="./newCustomer" class="btn btn-lg btn-success">Add Customer</a>
+<!--    <a href="./newCustomer" class="btn btn-lg btn-success">Add Customer</a>-->
 
-    <table class="table table-hover">
+    <table class="table table-hover"  style="margin-top: 20px;">
         <thead>
         <tr>
             <th>ID</th>
@@ -28,27 +28,21 @@
         </tr>
         </thead>
         <tbody>
-    <?php
-        if (isset($data)) {
-            while($row = mysqli_fetch_array($data["ListCustomer"]))
-            {
-                echo "<tr><td>" .$row["id"] ."</td>"
-                . "<td>". $row["name"] ."</td>"
-                . "<td>". $row["email"] ."</td>"
-                . "<td>". $row["create_date"] ."</td>"
-                . "<td>". $row["updated_date"] ."</td>"
-                . "<td><a href='editCustomer/" .$row["id"] ."'>Edit</a> | <a href='deleteCustomer/" .$row["id"] ."'>Delete</a></td></tr>";
-            }
-        }
-    ?>
+            <?php
+                if (isset($data)) {
+                    while($row = mysqli_fetch_array($data["ListCustomer"]))
+                    {
+                        echo "<tr><td>" .$row["id"] ."</td>"
+                        . "<td>". $row["name"] ."</td>"
+                        . "<td>". $row["email"] ."</td>"
+                        . "<td>". $row["create_date"] ."</td>"
+                        . "<td>". $row["updated_date"] ."</td>"
+                        . "<td><a href='editCustomer/" .$row["id"] ."'>Edit</a> | <a href='deleteCustomer/" .$row["id"] ."'>Delete</a></td></tr>";
+                    }
+                }
+            ?>
         </tbody>
     </table>
     </div>
-
-    <br>
-    <div class="text-center">
-        <h3><a href="../">Log Out</a></h3>
-    </div>
-    
 </body>
 </html>

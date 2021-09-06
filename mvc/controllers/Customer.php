@@ -1,13 +1,35 @@
 <?php
     class Customer extends Controller
     {
+        public function __construct()
+        {
+            if ($_SESSION["Username"] == null)
+            {
+                echo "<script type='text/javascript'>
+                        window.location.href = 'http://localhost/PHPAdvanded/Login/enterLogin';
+                    </script>";
+            }
+            else
+            {
+                if ($_SESSION["Username"] != "admin")
+                {
+                    echo "<script type='text/javascript'>
+                        alert('Please login admin to access this page!')
+                        window.location.href = 'http://localhost/PHPAdvanded/Home/';
+                    </script>";
+                }
+            }
+        }
+
         public function showList()
         {
             $modelCustomer = $this->model("CustomerModel");
             $listCustomer = $modelCustomer->getAllCustomer();
+            $this->view("header");
             $this->view("showListCustomer",[
                 "ListCustomer" => $listCustomer,
             ]);
+            $this->view("footer");
         }
 
         public function newCustomer()
@@ -52,9 +74,9 @@
                 $saveCustomer = $this->model("CustomerModel");
                 $name = $_POST["txtName"];
                 $email = $_POST["txtEmail"];
-                $creatDate = $_POST["txtCreateDate"];
-                $updatedDate = $_POST["txtUpdatedDate"];
-                $result = $saveCustomer->updateCustomer($id,$name, $email, $creatDate, $updatedDate);
+                date_default_timezone_set('Asia/Bangkok');
+                $updatedDate = date('Y/m/d', time());
+                $result = $saveCustomer->updateCustomer($id,$name, $email, $updatedDate);
                 if ($result)
                 {
                     header("location: ../showList");
